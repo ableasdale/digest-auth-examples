@@ -1,5 +1,6 @@
-package com.marklogic.support;
+package com.marklogic.support.notworking;
 
+import com.marklogic.support.Configuration;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.slf4j.Logger;

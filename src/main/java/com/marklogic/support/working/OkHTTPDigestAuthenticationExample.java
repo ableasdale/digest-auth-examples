@@ -1,10 +1,11 @@
-package com.marklogic.support;
+package com.marklogic.support.working;
 
 import com.burgstaller.okhttp.AuthenticationCacheInterceptor;
 import com.burgstaller.okhttp.CachingAuthenticatorDecorator;
 import com.burgstaller.okhttp.digest.CachingAuthenticator;
 import com.burgstaller.okhttp.digest.Credentials;
 import com.burgstaller.okhttp.digest.DigestAuthenticator;
+import com.marklogic.support.Configuration;
 import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

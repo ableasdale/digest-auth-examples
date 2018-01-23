@@ -1,8 +1,9 @@
-package com.marklogic.support;
+package com.marklogic.support.notworking;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import com.marklogic.support.Configuration;
 import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.jetty.client.api.Authentication;
 import org.eclipse.jetty.client.api.AuthenticationStore;

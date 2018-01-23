@@ -1,5 +1,6 @@
-package com.marklogic.support;
+package com.marklogic.support.working;
 
+import com.marklogic.support.Configuration;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.auth.AuthScope;
