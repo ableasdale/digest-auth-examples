@@ -1,0 +1,49 @@
+package com.marklogic.support;
+
+import org.apache.http.HttpHost;
+import org.apache.http.HttpResponse;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.CredentialsProvider;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.auth.DigestScheme;
+import org.apache.http.impl.client.BasicCredentialsProvider;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.protocol.BasicHttpContext;
+import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.lang.invoke.MethodHandles;
+
+public class ApacheHTTPComponentsDigestAuthenticationExample {
+
+    private static final Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
+    public static void main(String[] args) throws Exception {
+
+        HttpHost target = new HttpHost(Configuration.HOSTNAME, Configuration.PORT, "http");
+        CredentialsProvider credsProvider = new BasicCredentialsProvider();
+        credsProvider.setCredentials(
+                new AuthScope(target.getHostName(), target.getPort()),
+                new UsernamePasswordCredentials(Configuration.USERNAME, Configuration.PASSWORD));
+
+        CloseableHttpClient httpclient = HttpClients.custom().setDefaultCredentialsProvider(credsProvider)
+                .build();
+
+        BasicHttpContext localContext = new BasicHttpContext();
+        DigestScheme digestAuth = new DigestScheme();
+        localContext.setAttribute("preemptive-auth", digestAuth);
+        HttpGet httpGet = new HttpGet("/");
+
+        LOG.info(String.format("Executing request: %s to target: %s", httpGet.getRequestLine(), target));
+
+        HttpResponse response = httpclient.execute(target, httpGet, localContext);
+        LOG.info(String.format("Response status line: %s", response.getStatusLine()));
+        LOG.info(String.format("Response Body: %s", EntityUtils.toString(response.getEntity())));
+        EntityUtils.consumeQuietly(response.getEntity());
+
+        httpclient.close();
+    }
+}
