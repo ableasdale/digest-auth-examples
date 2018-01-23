@@ -37,7 +37,15 @@ public class JerseyDigestAuthenticationExample {
 
 
 
-
+//        JerseyClientConfiguration configuration = config.httpClient;
+//        HttpHost target = HttpHost.create(config.apiUrl);
+//        CredentialsProvider credsProvider = new BasicCredentialsProvider();
+//        credsProvider.setCredentials(new AuthScope(target), new UsernamePasswordCredentials(config.user, config.password));
+//
+//        final Client httpClient = new JerseyClientBuilder(environment)
+//                .using(configuration)
+//                .using(credsProvider)
+//                .build("my-client");
 
 
         //target.register(new HttpDigestAuthFilter(Configuration.USERNAME, Configuration.PASSWORD));

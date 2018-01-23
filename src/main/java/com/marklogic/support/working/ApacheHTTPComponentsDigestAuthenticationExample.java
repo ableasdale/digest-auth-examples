@@ -27,10 +27,10 @@ public class ApacheHTTPComponentsDigestAuthenticationExample {
         HttpHost target = new HttpHost(Configuration.HOSTNAME, Configuration.PORT, "http");
         CredentialsProvider credsProvider = new BasicCredentialsProvider();
         credsProvider.setCredentials(
-                new AuthScope(target.getHostName(), target.getPort()),
+                new AuthScope(target),
                 new UsernamePasswordCredentials(Configuration.USERNAME, Configuration.PASSWORD));
 
-        CloseableHttpClient httpclient = HttpClients.custom().setDefaultCredentialsProvider(credsProvider)
+        CloseableHttpClient httpClient = HttpClients.custom().setDefaultCredentialsProvider(credsProvider)
                 .build();
 
         BasicHttpContext localContext = new BasicHttpContext();
@@ -40,11 +40,11 @@ public class ApacheHTTPComponentsDigestAuthenticationExample {
 
         LOG.info(String.format("Executing request: %s to target: %s", httpGet.getRequestLine(), target));
 
-        HttpResponse response = httpclient.execute(target, httpGet, localContext);
+        HttpResponse response = httpClient.execute(target, httpGet, localContext);
         LOG.info(String.format("Response status line: %s", response.getStatusLine()));
         LOG.info(String.format("Response Body: %s", EntityUtils.toString(response.getEntity())));
         EntityUtils.consumeQuietly(response.getEntity());
 
-        httpclient.close();
+        httpClient.close();
     }
 }
