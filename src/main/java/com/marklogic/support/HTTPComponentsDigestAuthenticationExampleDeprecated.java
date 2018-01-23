@@ -29,20 +29,21 @@ public class HTTPComponentsDigestAuthenticationExampleDeprecated {
         DefaultHttpClient httpclient = new DefaultHttpClient();
         HttpHost target = new HttpHost(Configuration.HOSTNAME, Configuration.PORT, "http");
 
+        /*
         CredentialsProvider credsProvider = new BasicCredentialsProvider();
         credsProvider.setCredentials(
                 new AuthScope(target.getHostName(), target.getPort()),
                 new UsernamePasswordCredentials(Configuration.USERNAME, Configuration.PASSWORD));
 
-        /*
-        CloseableHttpClient httpclient = HttpClients.custom()
+        
+        CloseableHttpClient httpclient = HttpClients.createDefault()
                 .addInterceptorFirst(new HTTPComponentsDigestAuthenticationExampleNew.PreemptiveAuth())
                 .addInterceptorFirst(new HTTPComponentsDigestAuthenticationExampleNew.PersistentDigest())
                 .setDefaultCredentialsProvider(credsProvider)
                 .build();
         */
         httpclient.getCredentialsProvider().setCredentials(
-                new AuthScope(Configuration.HOSTNAME, Configuration.PORT),
+                new AuthScope(target.getHostName(), target.getPort()),
                 new UsernamePasswordCredentials(Configuration.USERNAME, Configuration.PASSWORD));
 
         BasicHttpContext localcontext = new BasicHttpContext();
