@@ -7,7 +7,6 @@ import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.auth.DigestScheme;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -32,10 +31,7 @@ public class ApacheHTTPComponentsDigestAuthenticationExample {
 
         CloseableHttpClient httpClient = HttpClients.custom().setDefaultCredentialsProvider(credsProvider)
                 .build();
-
         BasicHttpContext localContext = new BasicHttpContext();
-        DigestScheme digestAuth = new DigestScheme();
-        localContext.setAttribute("preemptive-auth", digestAuth);
         HttpGet httpGet = new HttpGet("/");
 
         LOG.info(String.format("Executing request: %s to target: %s", httpGet.getRequestLine(), target));
