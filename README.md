@@ -9,7 +9,7 @@ Tested with HTTP requests to a MarkLogic HTTP Application Server (using MarkLogi
 To see how Digest Authentication works between client and server, you can use cURL with the -v switch; below is a simple example of a GET where Digest Authentication is used:
 
 ```
-curl --anyauth --user q:q -v -i GET 'http://localhost:65534'
+curl --digest --user q:q -Lvso /dev/null http://localhost:65534
 ```
 
 ## Working examples
@@ -45,15 +45,11 @@ Keep-Alive: timeout=5
 ```
 
 ```bash
-curl -v --digest --user q:q -i GET 'http://localhost:65534'
-* Rebuilt URL to: GET/
-* Could not resolve host: GET
-* Closing connection 0
-curl: (6) Could not resolve host: GET
+curl --digest --user q:q -Lvso /dev/null http://localhost:65534
 * Rebuilt URL to: http://localhost:65534/
 *   Trying ::1...
 * TCP_NODELAY set
-* Connected to localhost (::1) port 65534 (#1)
+* Connected to localhost (::1) port 65534 (#0)
 * Server auth using Digest with user 'q'
 > GET / HTTP/1.1
 > Host: localhost:65534
@@ -61,45 +57,34 @@ curl: (6) Could not resolve host: GET
 > Accept: */*
 >
 < HTTP/1.1 401 Unauthorized
-HTTP/1.1 401 Unauthorized
 < Server: MarkLogic
-Server: MarkLogic
-< WWW-Authenticate: Digest realm="public", qop="auth", nonce="35e317e3d3a360:1iw2tpWDYJy6dL+tsV+V9g==", opaque="ade472824b98adc8"
-WWW-Authenticate: Digest realm="public", qop="auth", nonce="35e317e3d3a360:1iw2tpWDYJy6dL+tsV+V9g==", opaque="ade472824b98adc8"
+< WWW-Authenticate: Digest realm="public", qop="auth", nonce="35e32eb2b27240:wLUp/u/8HKC2UEk7fkmkDA==", opaque="5ed25b49530f2224"
 < Content-Type: text/html; charset=utf-8
-Content-Type: text/html; charset=utf-8
 < Content-Length: 209
-Content-Length: 209
 < Connection: Keep-Alive
-Connection: Keep-Alive
 < Keep-Alive: timeout=5
-Keep-Alive: timeout=5
-
 <
 * Ignoring the response-body
-* Connection #1 to host localhost left intact
+{ [209 bytes data]
+* Connection #0 to host localhost left intact
 * Issue another request to this URL: 'http://localhost:65534/'
-* Found bundle for host localhost: 0x7ffc6550bab0 [can pipeline]
-* Re-using existing connection! (#1) with host localhost
-* Connected to localhost (::1) port 65534 (#1)
+* Found bundle for host localhost: 0x7fc5a2c0bba0 [can pipeline]
+* Re-using existing connection! (#0) with host localhost
+* Connected to localhost (::1) port 65534 (#0)
 * Server auth using Digest with user 'q'
 > GET / HTTP/1.1
 > Host: localhost:65534
-> Authorization: Digest username="q", realm="public", nonce="35e317e3d3a360:1iw2tpWDYJy6dL+tsV+V9g==", uri="/", cnonce="YzIwOTU5YzJmMGJjMTA0NGMxN2YyY2FlY2QzZjBiZjM=", nc=00000001, qop=auth, response="1e1e38d7a1550ec894a77df772b2f8be", opaque="ade472824b98adc8"
+> Authorization: Digest username="q", realm="public", nonce="35e32eb2b27240:wLUp/u/8HKC2UEk7fkmkDA==", uri="/", cnonce="MWIzNjAxNWY1MzliOWI0Y2UxNDcyZjY5ZjE2Y2ZiZjU=", nc=00000001, qop=auth, response="f7f00dce41fc1a0b0200758922e697f3", opaque="5ed25b49530f2224"
 > User-Agent: curl/7.54.0
 > Accept: */*
 >
 < HTTP/1.1 200 OK
-HTTP/1.1 200 OK
 < Server: MarkLogic
-Server: MarkLogic
 < Content-Type: text/plain; charset=UTF-8
-Content-Type: text/plain; charset=UTF-8
 < Content-Length: 346
-Content-Length: 346
 < Connection: Keep-Alive
-Connection: Keep-Alive
 < Keep-Alive: timeout=5
-Keep-Alive: timeout=5
-
+<
+{ [346 bytes data]
+* Connection #0 to host localhost left intact
 ```
