@@ -13,9 +13,9 @@ Tested with HTTP requests to a MarkLogic HTTP Application Server (using MarkLogi
 
 ## Non-working code examples (currently broken / WIP)
 
-- Google HTTP Client
-- Jetty Client
-- Netty
+- Google HTTP Client ()
+- Jetty Client (See: https://github.com/eclipse/jetty.project/pull/2159)
+- Netty (_ASync HTTP Client is built on Netty_)
 
 ## The pattern
 
@@ -88,4 +88,12 @@ curl --digest --user q:q -Lvso /dev/null http://localhost:65534
 <
 { [346 bytes data]
 * Connection #0 to host localhost left intact
+```
+
+You can also test Digest Authentication using Postman:
+![Postman Configuation for Digest Auth](src/main/resources/postman-example.png "Postman Configuation for Digest Auth")
+
+Look under the headers tab and you can see what gets sent to MarkLogic for authentication:
+```
+Digest username="q", realm="public", nonce="35e3735b67647e:Z1ls84xeix9/xKVykKKpDQ==", uri="/", qop=auth, nc=00000001, cnonce="qX677A6i", response="9c09ad4b9a7ce11bb4f3718e68c1fea2", opaque="44c12dc1dde9e525"
 ```
