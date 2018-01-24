@@ -4,27 +4,28 @@ Example patterns for using Digest Authentication with a range of Java HTTP Clien
 
 Tested with HTTP requests to a MarkLogic HTTP Application Server (using MarkLogic 9.0-3 and above) configured with "Digest Authentication" to demonstrate the possible uses for some common Java HTTP Client Libraries with Digest Authentication.
 
-## The pattern
-
-To see how Digest Authentication works between client and server, you can use cURL with the -v switch; below is a simple example of a GET where Digest Authentication is used:
-
-```
-curl --digest --user q:q -Lvso /dev/null http://localhost:65534
-```
-
-## Working examples
+## Working code examples
 
 - ASync HTTP Client
 - Apache HTTP Components (HTTP Client)
 - OkHTTP
 - Jersey Client
 
-## Non-working examples (currently broken / WIP)
+## Non-working code examples (currently broken / WIP)
 
 - Google HTTP Client
 - Jetty Client
 - Netty
 
+## The pattern
+
+To see how Digest Authentication works between client and server, you can use cURL with the -Lvso switches:
+
+```
+curl --digest --user q:q -Lvso /dev/null http://localhost:65534
+```
+
+Below is a simple example of a curl GET call where Digest Authentication is used in the Request/Response including the authentication headers from both sides:
 
 ```bash
 curl --anyauth --user q:q -i -X GET 'http://localhost:65534'
