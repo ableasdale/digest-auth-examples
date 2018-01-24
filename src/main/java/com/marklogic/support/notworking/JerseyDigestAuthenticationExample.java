@@ -26,10 +26,15 @@ public class JerseyDigestAuthenticationExample {
         //HttpAuthenticationFeature feature = HttpAuthenticationFeature.digest(Configuration.USERNAME, Configuration.PASSWORD);
 
 
+        HttpAuthenticationFeature feature = HttpAuthenticationFeature.basicBuilder()
+                .nonPreemptive()
+                .credentials("user", "password")
+                .build();
 
         ClientConfig clientConfig = new ClientConfig();
+        clientConfig.register(HttpAuthenticationFeature.digest(Configuration.USERNAME, Configuration.PASSWORD));
+        //clientConfig.getProperties().put (HttpClientConfig.PROPERTY_PREEMPTIVE_AUTHENTICATION, Boolean.TRUE);
         Client client = ClientBuilder.newClient(clientConfig);
-        client.register(HttpAuthenticationFeature.digest(Configuration.USERNAME, Configuration.PASSWORD));
 
         WebTarget target = client.target(Configuration.URI);
         String s = target.request().get(String.class);

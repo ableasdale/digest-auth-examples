@@ -5,6 +5,7 @@ import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.jetty.client.api.AuthenticationStore;
 import org.eclipse.jetty.client.api.ContentResponse;
 import org.eclipse.jetty.client.api.Request;
+import org.eclipse.jetty.client.util.BasicAuthentication;
 import org.eclipse.jetty.client.util.DigestAuthentication;
 import org.eclipse.jetty.http.HttpMethod;
 import org.slf4j.Logger;
@@ -12,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
 import java.net.URI;
+import java.util.concurrent.TimeUnit;
 
 
 public class JettyDigestAuthenticationExample {
@@ -23,14 +25,26 @@ public class JettyDigestAuthenticationExample {
         HttpClient httpClient = new HttpClient();
 
         AuthenticationStore auth = httpClient.getAuthenticationStore();
+       // auth.addAuthenticationResult(new DigestAuthentication.DigestResult(new URI(Configuration.URI), "public", Configuration.USERNAME, Configuration.PASSWORD));
+
         auth.addAuthentication(new DigestAuthentication(new URI(Configuration.URI), "public", Configuration.USERNAME, Configuration.PASSWORD));
         httpClient.setAuthenticationStore(auth);
+
 
         //httpClient.setFollowRedirects(false);
         httpClient.start();
         Request r = httpClient.newRequest(Configuration.URI);
         r.method(HttpMethod.GET);
-        ContentResponse response = r.send();
-        LOG.info(response.getContentAsString());
+        //ContentResponse response = r.send();
+        //response = r.send();
+        //response = r.send();
+        //LOG.info(response.getContentAsString());
+
+
+
+//        ContentResponse response = httpClient
+//                .newRequest(Configuration.URI)
+//                .send()
+//                .get(5, TimeUnit.SECONDS);
     }
 }
