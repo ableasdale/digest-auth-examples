@@ -10,6 +10,7 @@ import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.logging.HttpLoggingInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,11 +25,15 @@ public class OkHTTPDigestAuthenticationExample {
 
     public static void main(String[] args) {
 
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
         final DigestAuthenticator authenticator = new DigestAuthenticator(new Credentials(Configuration.USERNAME, Configuration.PASSWORD));
 
         final Map<String, CachingAuthenticator> authCache = new ConcurrentHashMap<>();
         final OkHttpClient client = new OkHttpClient.Builder()
                 .authenticator(new CachingAuthenticatorDecorator(authenticator, authCache))
+                .addInterceptor(loggingInterceptor)
                 .addInterceptor(new AuthenticationCacheInterceptor(authCache))
                 .build();
 

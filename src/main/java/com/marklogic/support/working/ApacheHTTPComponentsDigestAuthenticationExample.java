@@ -22,6 +22,7 @@ public class ApacheHTTPComponentsDigestAuthenticationExample {
     private static final Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     public static void main(String[] args) throws Exception {
+        System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
 
         HttpHost target = new HttpHost(Configuration.HOSTNAME, Configuration.PORT, "http");
         CredentialsProvider credsProvider = new BasicCredentialsProvider();

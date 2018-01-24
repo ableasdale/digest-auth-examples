@@ -17,11 +17,11 @@ curl --digest --user q:q -Lvso /dev/null http://localhost:65534
 - ASync HTTP Client
 - Apache HTTP Components (HTTP Client)
 - OkHTTP
+- Jersey Client
 
 ## Non-working examples (currently broken / WIP)
 
 - Google HTTP Client
-- Jersey Client
 - Jetty Client
 - Netty
 
