@@ -14,6 +14,7 @@ curl --anyauth --user q:q -v -i GET 'http://localhost:65534'
 
 ## Working examples
 
+- ASync HTTP Client
 - Apache HTTP Components (HTTP Client)
 - OkHTTP
 
