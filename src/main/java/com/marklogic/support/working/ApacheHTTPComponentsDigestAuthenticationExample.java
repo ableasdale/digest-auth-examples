@@ -38,6 +38,7 @@ public class ApacheHTTPComponentsDigestAuthenticationExample {
         LOG.info(String.format("Executing request: %s to target: %s", httpGet.getRequestLine(), target));
 
         HttpResponse response = httpClient.execute(target, httpGet, localContext);
+        LOG.info(String.format("Request status line: %s", httpGet.getRequestLine()));
         LOG.info(String.format("Response status line: %s", response.getStatusLine()));
         LOG.info(String.format("Response Body: %s", EntityUtils.toString(response.getEntity())));
         EntityUtils.consumeQuietly(response.getEntity());

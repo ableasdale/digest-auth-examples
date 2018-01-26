@@ -41,7 +41,7 @@ public class JerseyDigestAuthenticationExample {
         Client client = ClientBuilder.newClient(clientConfig);
 
         // Prepare request
-        WebTarget target = client.target(Configuration.URI+"/foo?a=1");
+        WebTarget target = client.target(Configuration.URI);
 
         // Get request details
         Invocation req = target.request().buildGet();
