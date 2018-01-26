@@ -13,6 +13,7 @@ Tested with HTTP requests to a MarkLogic HTTP Application Server (using MarkLogi
 
 ## Non-working code examples (currently broken / WIP)
 
+- Airlift (uses Jetty so currently fails for the same reason Jetty does)
 - Google HTTP Client (See: https://github.com/google/google-http-java-client/issues/163)
 - Jetty Client (See: https://github.com/eclipse/jetty.project/pull/2159 and https://github.com/eclipse/jetty.project/issues/2160)
 - Netty (_No example yet - although ASync HTTP Client is built on Netty_)
