@@ -17,7 +17,7 @@ dependencies {
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
     compile group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.10.0'
-    // compile group: 'org.slf4j', name: 'jul-to-slf4j', version: '1.7.25'
+    compile group: 'org.slf4j', name: 'jul-to-slf4j', version: '1.7.25'
     // compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
 
     // Airlift
@@ -32,7 +32,8 @@ dependencies {
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.4'
 
     // Jetty
-    compile group: 'org.eclipse.jetty', name: 'jetty-client', version: '9.4.8.v20171121'
+    //compile group: 'org.eclipse.jetty', name: 'jetty-client', version: '9.4.8.v20171121'
+    compile group: 'org.eclipse.jetty', name: 'jetty-io', version: '9.4.8.v20171121'
 
     // Netty
     compile group: 'io.netty', name: 'netty-all', version: '4.1.20.Final'
