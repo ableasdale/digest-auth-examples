@@ -14,15 +14,22 @@ import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.bridge.SLF4JBridgeHandler;
 
 import java.lang.invoke.MethodHandles;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
 
 public class ApacheHTTPComponentsDigestAuthenticationExample {
 
     private static final Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     public static void main(String[] args) throws Exception {
-        System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
+        // Intercept JCL so we can get some log output
+        LogManager.getLogManager().reset();
+        SLF4JBridgeHandler.removeHandlersForRootLogger();
+        SLF4JBridgeHandler.install();
+        java.util.logging.Logger.getLogger("global").setLevel(Level.ALL);
 
         HttpHost target = new HttpHost(Configuration.HOSTNAME, Configuration.PORT, "http");
         CredentialsProvider credsProvider = new BasicCredentialsProvider();
