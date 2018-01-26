@@ -1,8 +1,8 @@
 # digest-auth-examples
 
-Example patterns for using Digest Authentication with a range of Java HTTP Clients.
+Example patterns for using Digest Authentication against MarkLogic Server with a range of Java HTTP Clients.
 
-Tested with HTTP requests to a MarkLogic HTTP Application Server (using MarkLogic 9.0-3 and above) configured with "Digest Authentication" to demonstrate the possible uses for some common Java HTTP Client Libraries with Digest Authentication.
+Tested with HTTP requests to a MarkLogic HTTP Application Server (using MarkLogic **9.0-3** and above) configured with "Digest Authentication" to demonstrate the possible uses for some common Java HTTP Client Libraries with Digest Authentication.
 
 ## Working code examples
 
@@ -14,8 +14,8 @@ Tested with HTTP requests to a MarkLogic HTTP Application Server (using MarkLogi
 ## Non-working code examples (currently broken / WIP)
 
 - Google HTTP Client (See: https://github.com/google/google-http-java-client/issues/163)
-- Jetty Client (See: https://github.com/eclipse/jetty.project/pull/2159)
-- Netty (_ASync HTTP Client is built on Netty_)
+- Jetty Client (See: https://github.com/eclipse/jetty.project/pull/2159 and https://github.com/eclipse/jetty.project/issues/2160)
+- Netty (_No example yet - although ASync HTTP Client is built on Netty_)
 
 ## The pattern
 
