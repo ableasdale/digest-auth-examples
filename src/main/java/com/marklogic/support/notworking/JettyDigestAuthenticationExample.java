@@ -20,7 +20,9 @@ public class JettyDigestAuthenticationExample {
 
     public static void main(String[] args) throws Exception {
 
-        // See: https://github.com/eclipse/jetty.project/pull/2159
+        /* Currently not working unless you take the current code from source:
+         * See: https://github.com/eclipse/jetty.project/issues/2160
+         */
 
         HttpClient httpClient = new HttpClient();
         AuthenticationStore auth = httpClient.getAuthenticationStore();

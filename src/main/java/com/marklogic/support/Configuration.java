@@ -7,6 +7,6 @@ public class Configuration {
     public static final String USERNAME = "q";
     public static final String PASSWORD = "q";
 
-    public static final String URI = String.format("http://%s:%d", Configuration.HOSTNAME, Configuration.PORT);
+    public static final String URI = String.format("http://%s:%d/", Configuration.HOSTNAME, Configuration.PORT);
 
 }

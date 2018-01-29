@@ -18,7 +18,6 @@ public class ASyncHttpClientDigestAuthenticationExample {
 
     public static void main(String[] args) {
         Realm realm = new Realm.Builder(Configuration.USERNAME, Configuration.PASSWORD)
-                // .setRealmName("public")
                 .setScheme(Realm.AuthScheme.DIGEST)
                 .build();
 
