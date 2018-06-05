@@ -1,4 +1,4 @@
-package com.marklogic.support.notworking;
+package com.marklogic.support.working;
 
 import com.marklogic.support.Configuration;
 import org.eclipse.jetty.client.HttpClient;
@@ -19,10 +19,6 @@ public class JettyDigestAuthenticationExample {
     private static final Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     public static void main(String[] args) throws Exception {
-
-        /* Currently not working unless you take the current code from source:
-         * See: https://github.com/eclipse/jetty.project/issues/2160
-         */
 
         HttpClient httpClient = new HttpClient();
         AuthenticationStore auth = httpClient.getAuthenticationStore();
