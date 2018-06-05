@@ -17,9 +17,9 @@ public class NettyDigestAuthenticationExample {
 
     public static void main(String[] args) {
 
+        // Note - I opted to use the ASyncHTTPClient (which is built on netty)
         // Prepare the HTTP request.
         HttpRequest request = new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, HttpMethod.GET, Configuration.URI);
-
 
     }
 }

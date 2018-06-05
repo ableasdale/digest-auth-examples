@@ -22,9 +22,7 @@ public class AirliftHttpClientAuthenticationExample {
 
     public static void main(String[] args) throws Exception {
 
-        /* TODO - there are currently 2 issues with Airlift:
-        1. Jetty still has an issue with Digest Authentication
-        2. It's not clear from looking at the airlift code whether you can add the auth store as you do with Jetty:
+        /* TODO: It's not clear from looking at the airlift code whether you can add the auth store as you do with Jetty:
             AuthenticationStore auth = httpClient.getAuthenticationStore();
             auth.addAuthentication(new DigestAuthentication(new URI(Configuration.URI), "public", Configuration.USERNAME, Configuration.PASSWORD));
             httpClient.setAuthenticationStore(auth);
