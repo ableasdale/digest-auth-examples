@@ -1,20 +1,9 @@
 package com.marklogic.support.notworking;
 
-import com.marklogic.support.Configuration;
-import io.airlift.http.client.HttpClient;
-import io.airlift.http.client.HttpClientConfig;
-import io.airlift.http.client.StatusResponseHandler;
-import io.airlift.http.client.jetty.JettyHttpClient;
-import io.airlift.units.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
-import java.net.URI;
-import java.util.concurrent.TimeUnit;
-
-import static io.airlift.http.client.Request.Builder.prepareGet;
-import static io.airlift.http.client.StatusResponseHandler.createStatusResponseHandler;
 
 public class AirliftHttpClientAuthenticationExample {
 
@@ -28,13 +17,16 @@ public class AirliftHttpClientAuthenticationExample {
             httpClient.setAuthenticationStore(auth);
         */
 
+        /* Commenting out for now
+
         HttpClient client = new JettyHttpClient(new HttpClientConfig().setConnectTimeout(new Duration(2.0, TimeUnit.SECONDS)));
+        System.setProperty("http-client.log.enabled", "true");
 
         StatusResponseHandler.StatusResponse response = client.execute(prepareGet().setUri(new URI(Configuration.URI).resolve("/")).build(), createStatusResponseHandler());
 
         if (response != null) {
             LOG.info("Response Status: " + response.getStatusCode());
             LOG.info("Response Message: " + response.getStatusMessage());
-        }
+        } */
     }
 }

@@ -31,6 +31,7 @@ public class JettyDigestAuthenticationExample {
         r.method(HttpMethod.GET);
         ContentResponse response = r.send();
         LOG.info(response.getContentAsString());
+        httpClient.stop();
 
     }
 }

@@ -22,7 +22,7 @@ dependencies {
     compile group: 'org.slf4j', name: 'jul-to-slf4j', version: '1.7.25'
 
     // Airlift
-    compile group: 'io.airlift', name: 'http-client', version: '0.169'
+    // compile group: 'io.airlift', name: 'http-client', version: '0.169'
 
     // OkHTTP
     compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.10.0'
@@ -36,8 +36,8 @@ dependencies {
     compile group: 'org.eclipse.jetty', name: 'jetty-client', version: '9.4.9.v20180320'
     compile group: 'org.eclipse.jetty', name: 'jetty-io', version: '9.4.9.v20180320'
 
-    // Netty
-    compile group: 'io.netty', name: 'netty-all', version: '4.1.25.Final'
+    // Netty - commenting out as the ASync HTTP Client uses Netty
+    // compile group: 'io.netty', name: 'netty-all', version: '4.1.25.Final'
 
     // ASync HTTP Client (Built on Netty)
     compile 'org.asynchttpclient:async-http-client:2.4.9'
