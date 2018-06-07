@@ -19,8 +19,7 @@ public class VertXWebClientDigestAuthenticationExample {
         Vertx vertx = Vertx.vertx();
         WebClient client = WebClient.create(vertx);
 
-        client
-                .get(Configuration.PORT, Configuration.HOSTNAME, "/")
+        client.get(Configuration.PORT, Configuration.HOSTNAME, "/")
                 .send(ar -> {
                     if (ar.succeeded()) {
                         // Obtain response
@@ -40,6 +39,6 @@ public class VertXWebClientDigestAuthenticationExample {
                         LOG.error("Something went wrong " + ar.cause().getMessage());
                     }
                 });
-
+        //client.close();
     }
 }

@@ -38,5 +38,6 @@ public class VertXHttpClientDigestAuthenticationExample {
                         LOG.error("Unable to Authenticate: " + authHandler.result().statusCode());
                     }
                 });
+        //client.close();
     }
 }
