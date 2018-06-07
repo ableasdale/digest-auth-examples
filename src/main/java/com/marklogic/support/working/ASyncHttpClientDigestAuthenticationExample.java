@@ -28,7 +28,7 @@ public class ASyncHttpClientDigestAuthenticationExample {
                     .execute()
                     .toCompletableFuture()
                     .thenApply(Response::getResponseBody)
-                    .thenAccept(System.out::println)
+                    .thenAccept(LOG::info)
                     .join();
         } catch (IOException e) {
             LOG.error("IO Exception: ",e);
