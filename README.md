@@ -11,12 +11,13 @@ Tested with HTTP requests to a MarkLogic HTTP Application Server (using MarkLogi
 - OkHTTP
 - Jersey Client
 - Jetty Client
+- Vert.x (HTTP Client and Web Client)
 
 ## Non-working code examples (currently broken / WIP)
 
 - Airlift
 - Google HTTP Client (See: https://github.com/google/google-http-java-client/issues/163)
-- Netty (_No example yet - although ASync HTTP Client is built on Netty_)
+- Netty (_No example yet - although ASync HTTP Client and Vert.x are built on Netty_)
 
 ## The pattern
 
