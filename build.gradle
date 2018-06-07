@@ -54,4 +54,7 @@ dependencies {
     compile group: 'io.vertx', name: 'vertx-core', version: '3.5.1'
     compile group: 'io.vertx', name: 'vertx-web', version: '3.5.1'
     compile 'io.vertx:vertx-web-client:3.5.1'
+
+    // curl4j
+    compile group: 'org.toile-libre.libe', name: 'curl', version: '0.0.17'
 }
