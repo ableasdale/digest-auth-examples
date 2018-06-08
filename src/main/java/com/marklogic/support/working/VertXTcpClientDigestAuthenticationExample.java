@@ -36,8 +36,8 @@ public class VertXTcpClientDigestAuthenticationExample {
                         socket.handler(new Handler<Buffer>() {
                             @Override
                             public void handle(Buffer buffer) {
-                                System.out.println("Received data: " + buffer.length());
-
+                                LOG.info("Received data: " + buffer.length() + " bytes");
+                                LOG.info("Data: " + buffer.getString(0, buffer.length()));
                                 String auth = (buffer.getString(0, buffer.length()));
 
                                 List<String> result = Arrays.stream(auth.split(System.lineSeparator()))
@@ -50,9 +50,8 @@ public class VertXTcpClientDigestAuthenticationExample {
                                 socket.handler(new Handler<Buffer>() {
                                     @Override
                                     public void handle(Buffer buffer) {
-                                        System.out.println("Received data: " + buffer.length());
-
-                                        LOG.info("And:" + buffer.getString(0, buffer.length()));
+                                        LOG.info("Received data: " + buffer.length() + " bytes");
+                                        LOG.info("Data: " + buffer.getString(0, buffer.length()));
                                     }
                                 });
                             }

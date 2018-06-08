@@ -1,6 +1,7 @@
-# digest-auth-examples
+# HTTP Digest Authentications Examples
+## For use with MarkLogic 9.
 
-Example patterns for using Digest Authentication against MarkLogic Server with a range of Java HTTP Clients.
+Example patterns for using Digest Authentication against MarkLogic Server with a range of Java HTTP Client libraries.
 
 Tested with HTTP requests to a MarkLogic HTTP Application Server (using MarkLogic **9.0-3** and above) configured with "Digest Authentication" to demonstrate the possible uses for some common Java HTTP Client Libraries with Digest Authentication.
 
@@ -11,7 +12,7 @@ Tested with HTTP requests to a MarkLogic HTTP Application Server (using MarkLogi
 - OkHTTP
 - Jersey Client
 - Jetty Client
-- Vert.x (HTTP Client and Web Client)
+- Vert.x (HTTP Client, TCP Client and Web Client)
 
 ## Non-working code examples (currently broken / WIP)
 
